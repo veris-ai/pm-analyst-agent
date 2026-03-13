@@ -1,0 +1,3 @@
+# Veris - sensitive files
+.env.simulation
+config.yaml

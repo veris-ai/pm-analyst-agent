@@ -1,0 +1,32 @@
+services:
+  - name: microsoft/graph
+    dns_aliases:
+      - graph.microsoft.com
+  - name: microsoft/devops
+    dns_aliases:
+      - dev.azure.com
+      - almsearch.dev.azure.com
+  - name: microsoft/auth
+    dns_aliases:
+      - login.microsoftonline.com
+
+persona:
+  init:
+    type: http
+    request:
+      url: http://localhost:8000/auth/microsoft/login
+  modality:
+    type: ws
+    url: ws://localhost:8000/ws/conversations?token={session_token}
+
+agent:
+  code_path: /agent
+  entry_point: uv run --no-sync uvicorn app.main:app --host 0.0.0.0 --port 8000
+  port: 8008
+  environment:
+    PORT: "8008"
+    ADO_ORG: mock-org
+    ADO_PROJECT: mock-project
+    GOOGLE_API_KEY: ${GOOGLE_API_KEY}
+    MS_CLIENT_ID: mock-client-id
+    MS_CLIENT_SECRET: mock-client-secret
