@@ -1,4 +1,4 @@
-ARG GVISOR_BASE=us-central1-docker.pkg.dev/veris-ai-dev/veris-sandbox-prod/veris-gvisor:latest
+ARG GVISOR_BASE=us-central1-docker.pkg.dev/veris-ai-prod/veris-sandbox/veris-gvisor:latest
 FROM ${GVISOR_BASE}
 
 # Copy dependency manifest
