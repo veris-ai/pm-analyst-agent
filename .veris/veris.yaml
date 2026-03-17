@@ -14,10 +14,10 @@ persona:
   init:
     type: http
     request:
-      url: http://localhost:8000/auth/microsoft/login
+      url: http://localhost:8008/auth/microsoft/login
   modality:
     type: ws
-    url: ws://localhost:8000/ws/conversations?token={session_token}
+    url: ws://localhost:8008/ws/conversations?token={session_token}
 
 agent:
   code_path: /agent
